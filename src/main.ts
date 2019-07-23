@@ -1,9 +1,9 @@
-import { AcgControl } from './AcgControl';
+import { AcgControl } from './control/AcgControl';
 import '../libs/three.min'
 
 window.onload = function () {
     let myAcgControl = new AcgControl()
     console.log(myAcgControl)
-    let sdsd = "nihao0"
+    let sdsd = "nihaolll7788"
     console.log(sdsd)
 }

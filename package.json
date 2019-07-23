@@ -4,7 +4,7 @@
   "description": "",
   "private": true,
   "scripts": {
-    "go": "webpack & webpack-dev-server --inline --hot --mode=development",
+    "go": "webpack -p --mode=development & webpack-dev-server --inline --hot --mode=development",
     "serve": "webpack-dev-server --hot --mode=development",
     "dev": "webpack && webpack-dev-server --inline --mode=development --progress --config ./webpack.config.js",
     "pack": "webpack --mode=production",

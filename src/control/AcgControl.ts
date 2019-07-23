@@ -6,7 +6,7 @@ let AcgControl = class AcgControl{
     constructor(){
         this.events = []
         this.name = "AcgControl"
-        this.nn = 10
+        this.nn = 14
     }
 }
 
