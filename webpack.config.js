@@ -5,11 +5,11 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = {
-  entry: './src/main.ts',
+  entry: './src/main.js',
   plugins: [
         // new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({ template: 'index.html' }),
-        new CopyWebpackPlugin([{from:"static"}]),
+        // new CopyWebpackPlugin([{from:"static"}]),
         new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin()
         ],
@@ -21,11 +21,11 @@ module.exports = {
   devServer: {
     contentBase: path.resolve(__dirname, './dist/'), //服务路径
     port:8080,
-    open:true, //自动打开页面
+    open:false, //自动打开页面
     hot: true,
     compress: true, // 服务器压缩式，一般为`true`，
     inline: true, // 默认为true,在打包时会注入一段代码到最后的js中，用来监视页面的改动而自动刷新页面
-    publicPath: '/static',
+    // publicPath: '/static',
   },
   resolve: {
     // Add '.ts' and '.tsx' as resolvable extensions.
