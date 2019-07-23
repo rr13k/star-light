@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>star light</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    function reloadApp() {
+        if(hot) {
+          log("info", "[WDS] App hot update...");
+          window.postMessage("webpackHotUpdate" + currentHash, "*");
+        } else {
+          log("info", "[WDS] App updated. Reloading...");
+          window.location.reload();
+        }
+      }
+
+      reloadApp()
+</script>
