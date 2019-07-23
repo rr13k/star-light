@@ -6,6 +6,7 @@
   "scripts": {
     "go": "webpack & webpack-dev-server --inline --hot --mode=development",
     "serve": "webpack-dev-server --hot --mode=development",
+    "dev": "webpack && webpack-dev-server --inline --mode=development --progress --config ./webpack.config.js",
     "pack": "webpack --mode=production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -47,6 +48,7 @@
     "webpack": "^4.36.1",
     "webpack-cli": "^3.3.6",
     "webpack-dev-server": "^3.7.2",
+    "webpack-hot-middleware": "^2.25.0",
     "webpack-sources": "^1.3.0"
   },
   "dependencies": {
