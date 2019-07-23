@@ -4,7 +4,7 @@ var AcgControl = /** @class */ (function () {
     function AcgControl() {
         this.events = [];
         this.name = "AcgControl";
-        this.nn = 123;
+        this.nn = 4;
     }
     return AcgControl;
 }());
