@@ -29,8 +29,8 @@ module.exports = {
     contentBase: [path.resolve(__dirname, '../src/html'),
     path.resolve(__dirname, 'dist') ], //服务路径
     port: 9090,
-    // clientLogLevel: "none", //关闭log
-    // quiet: true, //关闭命令行log
+    clientLogLevel: "none", //关闭log
+    quiet: true, //关闭命令行log
     open: true, //自动打开页面
     hot: true,
     host: 'localhost',
