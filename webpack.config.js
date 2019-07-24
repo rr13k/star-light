@@ -12,17 +12,17 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/'
   },
+  resolve: {
+    extensions: ['.ts', '.css', '.json'],
+    alias: {
+      '@mvs': resolve('src/mvs'),
+      // '@': resolve('src'),
+      // '@assets': resolve('src/assets')
+    }
+  },
   node: {
     __filename: false,
     __dirname: false
-  },
-  resolve: {
-    extensions: ['.ts', '.json', '.css'],
-    alias: {
-        '@mvs': resolve('src/mvs'),
-        '@': resolve('src'),
-        '@assets': resolve('src/assets')
-    }
   },
   devtool: "source-map",
   devServer: {
@@ -38,10 +38,6 @@ module.exports = {
     compress: true, // 服务器压缩式，一般为`true`，
     inline: true, // 默认为true,在打包时会注入一段代码到最后的js中，用来监视页面的改动而自动刷新页面
     // publicPath: './static',
-  },
-  resolve: {
-    // Add '.ts' and '.tsx' as resolvable extensions.
-    extensions: [".ts", ".tsx", ".js", ".json"]
   },
   module: {
     rules: [{
@@ -101,6 +97,6 @@ module.exports = {
       to: 'static',
       ignore: ['.*']
     }]),
-    new webpack.NamedModulesPlugin()
+    // new webpack.NamedModulesPlugin()
   ],
 };
