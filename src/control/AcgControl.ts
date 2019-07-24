@@ -31,7 +31,10 @@ let AcgControl = class AcgControl {
         this.setPlays()
         this.start()
     }
-
+    
+    /**
+     * @description 初始化渲染器
+     */
     rendererInit(){
         this.renderer.setSize( window.innerWidth, window.innerHeight );
 		document.body.appendChild( this.renderer.domElement );
