@@ -1,5 +1,4 @@
-
-import { mv1 } from '@mvs/mv1/mv1';
+import { mv1 } from 'mvs/mv1/mv1';
 
 // import {mv1} from '../mvs/mv1/mv1';
 

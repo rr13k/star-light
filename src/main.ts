@@ -1,7 +1,7 @@
 import { AcgControl } from './control/AcgControl';
 
-window.onload = function () {
-    let myAcgControl = new AcgControl()
-    console.log(myAcgControl)
-    
-}
+window.onload = () => {
+    const myAcgControl = new AcgControl();
+    // tslint:disable-next-line: no-console
+    console.log(myAcgControl);
+};

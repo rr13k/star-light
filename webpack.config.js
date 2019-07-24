@@ -14,8 +14,9 @@ module.exports = {
   },
   resolve: {
     extensions: ['.ts', '.css', '.json'],
+    cacheWithContext:false,
     alias: {
-      '@mvs': resolve('src/mvs'),
+      mvs: resolve('src/mvs/'),
       // '@': resolve('src'),
       // '@assets': resolve('src/assets')
     }
@@ -97,6 +98,6 @@ module.exports = {
       to: 'static',
       ignore: ['.*']
     }]),
-    // new webpack.NamedModulesPlugin()
+    new webpack.NamedModulesPlugin()
   ],
 };
