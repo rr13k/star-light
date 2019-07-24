@@ -16,8 +16,8 @@ module.exports = {
     extensions: ['.ts', '.css', '.json'],
     cacheWithContext:false,
     alias: {
-      mvs: resolve('src/mvs/'),
-      // '@': resolve('src'),
+      '@mvs': resolve('src/mvs'),
+      '@': resolve('src'),
       // '@assets': resolve('src/assets')
     }
   },

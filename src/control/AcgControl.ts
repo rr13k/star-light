@@ -1,6 +1,4 @@
-import { mv1 } from 'mvs/mv1/mv1';
-
-// import {mv1} from '../mvs/mv1/mv1';
+import { mv1 } from '@mvs/mv1/mv1';
 
 import { PerspectiveCamera, Scene, WebGLRenderer } from 'three';
 import { BaseMv } from '../mvs/BaseMv';
