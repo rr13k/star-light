@@ -1,0 +1,41 @@
+{
+    "defaultSeverity": "error",
+    
+    "extends": [
+        "tslint:recommended"
+    ],
+    "jsRules": {  
+        "max-line-length": {
+        "options": [120]
+    }},
+    "rules": {
+        "max-line-length": {
+            "options": [120]
+        },
+        "quotemark":[true,"single"],
+        "indent" : [true,"spaces",2],
+        "new-parens": true,
+        "no-arg": true,
+        "comma-style": true,
+        "camelcase":true,
+        "comma-dangle":true,
+        "no-bitwise": true,
+        "no-conditional-assignment": true,
+        "no-consecutive-blank-lines": false,
+        "no-shadowed-variable": [
+            true,
+            {
+              "class": false,
+              "enum": true,
+              "function": true,
+              "interface": false,
+              "namespace": true,
+              "typeAlias": false,
+              "typeParameter": false
+            }
+          ]
+    },
+    "rulesDirectory": [
+        "src"
+    ]
+}

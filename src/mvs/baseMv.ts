@@ -1,11 +1,11 @@
 import { Scene } from 'three';
-class baseMv{
+class BaseMv {
+
+    static Scene = new Scene()
     name :string
     constructor(name:string){
         this.name = name
     }
-
-    static Scene = new Scene()
 
     setout():void{}
 
@@ -16,4 +16,4 @@ class baseMv{
     animate():void{}
 }
 
-export{baseMv}
+export { BaseMv };

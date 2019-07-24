@@ -1,29 +1,31 @@
 
-import {baseMv} from "../baseMv" 
-import { BoxGeometry,MeshBasicMaterial,Mesh } from 'three';
-let mv1 = class mv1 extends baseMv{
+import { BoxGeometry, Mesh, MeshBasicMaterial } from 'three';
+import {BaseMv} from '../BaseMv';
+const mv1 = class Mv1 extends BaseMv {
     constructor()  {
-        super("mv1")
+        super('mv1');
     }
 
-    setout(){
-        console.log("setout 动画开始啦")
-        this.loop()
-        var geometry = new BoxGeometry( 1, 1, 1 );
-        var material = new MeshBasicMaterial( { color: 0x00ff00 } );
-        var cube = new Mesh( geometry, material );
-        console.dir(baseMv)
+    public setout() {
+        // tslint:disable-next-line: no-console
+        console.log('setout 动画开始啦');
+        this.loop();
+        const geometry = new BoxGeometry( 1, 1, 1 );
+        const material = new MeshBasicMaterial( { color: 0x00ff00 } );
+        const cube = new Mesh( geometry, material );
+         // tslint:disable-next-line: no-console
+        console.dir(BaseMv);
     }
 
-    loop(){
-        console.log("动画开始循环")
+    public loop() {
+        // tslint:disable-next-line: no-console
+        console.log('动画开始循环');
         // this.loop.bind(this)()
     }
 
-    animate(){
+    public animate() {
         // console.log("------")
     }
-}
+};
 
-
-export{mv1}
+export {mv1};

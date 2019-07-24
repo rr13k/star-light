@@ -1,4 +1,5 @@
 const path = require('path');
+const resolve = dir => path.resolve(__dirname, dir);
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -10,6 +11,13 @@ module.exports = {
     filename: 'app.js',
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/'
+  },
+  resolve: {
+    alias: {
+        '@mvs': resolve('/src/mvs'),
+        '@': resolve('src'),
+        '@assets': resolve('src/assets')
+    }
   },
   devtool: "source-map",
   devServer: {
@@ -35,6 +43,16 @@ module.exports = {
         test: /\.tsx?$/,
         loader: "awesome-typescript-loader"
       }, //ts 配置
+      {
+        test: /\.ts$/,
+        enforce: 'pre',
+        use: [
+            {
+              loader: 'tslint-loader',
+              options: { /* Loader options go here */ }
+            }
+        ]
+    },
       {
         enforce: "pre",
         test: /\.js$/,
@@ -74,11 +92,10 @@ module.exports = {
       favicon: 'favicon.ico'
     }),
     new CopyWebpackPlugin([{
-      from: path.resolve(__dirname, '../static'),
+      from: path.resolve(__dirname, './static'),
       to: 'static',
       ignore: ['.*']
     }]),
     new webpack.NamedModulesPlugin()
-    
   ],
 };
