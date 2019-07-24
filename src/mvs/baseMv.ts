@@ -1,19 +1,27 @@
 import { Scene } from 'three';
 class BaseMv {
 
-    static Scene = new Scene()
-    name :string
-    constructor(name:string){
-        this.name = name
+    // private scene = new Scene();
+    private name: string;
+    constructor(name: string) {
+        this.name = name;
     }
 
-    setout():void{}
+    public setout(): void {
+        // 开始动画过渡
+    }
 
-    loop():void{}
+    public loop(): void {
+        // 循环动画
+    }
 
-    bearkLoop():void{}
+    public bearkLoop(): void {
+        // 跳出动画
+    }
 
-    animate():void{}
+    public animate(): void {
+        // 动画帧
+    }
 }
 
 export { BaseMv };
