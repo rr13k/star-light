@@ -6,7 +6,7 @@ const mv1 = class Mv1 extends BaseMv {
         super('mv1');
     }
 
-    public setout() {
+    public setout(): void {
         // tslint:disable-next-line: no-console
         console.log('setout 动画开始啦');
         this.loop();
@@ -17,13 +17,13 @@ const mv1 = class Mv1 extends BaseMv {
         console.dir(BaseMv);
     }
 
-    public loop() {
+    public loop(): void {
         // tslint:disable-next-line: no-console
         console.log('动画开始循环');
         // this.loop.bind(this)()
     }
 
-    public animate() {
+    public animate(): void {
         // console.log("------")
     }
 };

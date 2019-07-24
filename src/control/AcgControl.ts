@@ -1,4 +1,7 @@
 import { mv1 } from '@mvs/mv1/mv1';
+
+// import {mv1} from '../mvs/mv1/mv1';
+
 import { PerspectiveCamera, Scene, WebGLRenderer } from 'three';
 import { BaseMv } from '../mvs/BaseMv';
 const AcgControl = class AcgControl {
@@ -33,7 +36,7 @@ const AcgControl = class AcgControl {
     /**
      * @description 初始化渲染器
      */
-    public rendererInit() {
+    public rendererInit(): void {
         this.renderer.setSize(window.innerWidth, window.innerHeight);
         document.body.appendChild(this.renderer.domElement);
     }

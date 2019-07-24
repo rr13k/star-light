@@ -1,39 +1,52 @@
 {
     "defaultSeverity": "error",
-    
+
     "extends": [
         "tslint:recommended"
     ],
-    "jsRules": {  
+    "jsRules": {
         "max-line-length": {
-        "options": [120]
-    }},
+            "options": [120]
+        }
+    },
     "rules": {
         "max-line-length": {
             "options": [120]
         },
-        "quotemark":[true,"single"],
-        "indent" : [true,"spaces",2],
+        "quotemark": [true, "single"],
+        "indent": [true, "spaces", 2],
         "new-parens": true,
         "no-arg": true,
-        "comma-style": true,
-        "camelcase":true,
-        "comma-dangle":true,
+        "no-var-requires": true,
+        "typedef": [true, "call-signature", "parameter", "member-variable-declaration"],
         "no-bitwise": true,
         "no-conditional-assignment": true,
-        "no-consecutive-blank-lines": false,
+        "no-consecutive-blank-lines": true,
+        "curly": [true, "as-needed"],
+        "no-empty": true,
+        "no-invalid-this": true,
+        "no-this-assignment": true,
+        "no-var-keyword": true,
+        "triple-equals": true,
+        "return-undefined": true,
+        "no-eval": true,
+        "no-irregular-whitespace": true,
+        "use-isnan": true,
+        "unnecessary-constructor": true,
+        "no-duplicate-imports": [true],
+        "increment-decrement": [true, "allow-post"],
         "no-shadowed-variable": [
             true,
             {
-              "class": false,
-              "enum": true,
-              "function": true,
-              "interface": false,
-              "namespace": true,
-              "typeAlias": false,
-              "typeParameter": false
+                "class": false,
+                "enum": true,
+                "function": true,
+                "interface": false,
+                "namespace": true,
+                "typeAlias": false,
+                "typeParameter": false
             }
-          ]
+        ]
     },
     "rulesDirectory": [
         "src"
