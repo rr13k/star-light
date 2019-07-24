@@ -1,7 +1,7 @@
 import { scene } from '@/control/SceneControl';
 import { BaseMv } from '@mvs/BaseMv';
 import { mv1 } from '@mvs/mv1/mv1';
-import * as THREE from 'three';
+// import * as THREE from 'three';
 // tslint:disable-next-line: no-duplicate-imports
 import { PerspectiveCamera, Scene, WebGLRenderer } from 'three';
 
