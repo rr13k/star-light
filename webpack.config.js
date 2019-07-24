@@ -1,25 +1,25 @@
 const path = require('path');
-// const resolve = dir => path.join(__dirname,'..', dir);
+const resolve = dir => path.resolve(__dirname, dir);
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const webpack = require('webpack');
 
-function resolve(dir) {
-  return path.join(__dirname, '..', dir)
-}
-
 module.exports = {
-  entry: './src/main.ts',
+  entry: resolve("src/main.ts"),
   output: {
     filename: 'app.js',
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/'
   },
+  node: {
+    __filename: false,
+    __dirname: false
+  },
   resolve: {
     extensions: ['.ts', '.json', '.css'],
     alias: {
-        '@mvs': '/src/mvs',
+        '@mvs': resolve('src/mvs'),
         '@': resolve('src'),
         '@assets': resolve('src/assets')
     }
@@ -29,8 +29,8 @@ module.exports = {
     contentBase: [path.resolve(__dirname, '../src/html'),
     path.resolve(__dirname, 'dist') ], //服务路径
     port: 9090,
-    clientLogLevel: "none", //关闭log
-    quiet: true, //关闭命令行log
+    // clientLogLevel: "none", //关闭log
+    // quiet: true, //关闭命令行log
     open: true, //自动打开页面
     hot: true,
     host: 'localhost',
