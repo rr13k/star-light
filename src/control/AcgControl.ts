@@ -1,7 +1,7 @@
+import { BaseMv } from '@mvs/BaseMv';
 import { mv1 } from '@mvs/mv1/mv1';
 
 import { PerspectiveCamera, Scene, WebGLRenderer } from 'three';
-import { BaseMv } from '../mvs/BaseMv';
 const AcgControl = class AcgControl {
     private name: string;
     private plays: BaseMv[];

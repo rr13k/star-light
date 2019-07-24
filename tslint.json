@@ -28,7 +28,6 @@
         "no-this-assignment": true,
         "no-var-keyword": true,
         "triple-equals": true,
-        "return-undefined": true,
         "no-eval": true,
         "no-irregular-whitespace": true,
         "use-isnan": true,

@@ -1,8 +1,8 @@
 const path = require('path');
-const resolve = dir => path.resolve(__dirname, dir);
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const resolve = dir => path.resolve(__dirname, dir);
 const webpack = require('webpack');
 
 module.exports = {
@@ -12,26 +12,13 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/'
   },
-  resolve: {
-    extensions: ['.ts', '.css', '.json'],
-    cacheWithContext:false,
-    alias: {
-      '@mvs': resolve('src/mvs'),
-      '@': resolve('src'),
-      // '@assets': resolve('src/assets')
-    }
-  },
-  node: {
-    __filename: false,
-    __dirname: false
-  },
   devtool: "source-map",
   devServer: {
     contentBase: [path.resolve(__dirname, '../src/html'),
     path.resolve(__dirname, 'dist') ], //服务路径
-    port: 9090,
-    clientLogLevel: "none", //关闭log
-    quiet: true, //关闭命令行log
+    port: 8080,
+    // clientLogLevel: "none", //关闭log
+    // quiet: true, //关闭命令行log
     open: true, //自动打开页面
     hot: true,
     host: 'localhost',
@@ -40,21 +27,19 @@ module.exports = {
     inline: true, // 默认为true,在打包时会注入一段代码到最后的js中，用来监视页面的改动而自动刷新页面
     // publicPath: './static',
   },
+  resolve: {
+    // Add '.ts' and '.tsx' as resolvable extensions.
+    extensions: [".ts", ".tsx", ".js", ".json"],
+    alias: {
+      '@mvs': resolve('src/mvs'),
+      '@': resolve('src')
+    }
+  },
   module: {
     rules: [{
         test: /\.tsx?$/,
         loader: "awesome-typescript-loader"
       }, //ts 配置
-      {
-        test: /\.ts$/,
-        enforce: 'pre',
-        use: [
-            {
-              loader: 'tslint-loader',
-              options: { /* Loader options go here */ }
-            }
-        ]
-    },
       {
         enforce: "pre",
         test: /\.js$/,
