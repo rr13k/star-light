@@ -1,24 +1,32 @@
+import { scene } from '@/control/SceneControl';
 import { BaseMv } from '@mvs/BaseMv';
 import { mv1 } from '@mvs/mv1/mv1';
-
+import * as THREE from 'three';
+// tslint:disable-next-line: no-duplicate-imports
 import { PerspectiveCamera, Scene, WebGLRenderer } from 'three';
+
 const AcgControl = class AcgControl {
     private name: string;
     private plays: BaseMv[];
+    private scene: Scene;
     private index: number;
-    private Scene: Scene;
-    private Camera: PerspectiveCamera;
+    private camera: PerspectiveCamera;
     private renderer: WebGLRenderer;
     constructor() {
-        this.Scene = new Scene();
-        this.Camera = new PerspectiveCamera(75,
+        this.camera = new PerspectiveCamera(75,
             window.innerWidth / window.innerHeight,
             0.1,
             1000);
-        this.renderer = new WebGLRenderer();
+        this.camera.position.z = 5;
+
+        this.renderer = new WebGLRenderer({
+            alpha: true,
+            antialias: true,
+        });
         this.plays = [];
         this.name = 'AcgControl';
         this.index = 0;
+        this.scene = scene;
         this.init();
     }
 
@@ -39,6 +47,9 @@ const AcgControl = class AcgControl {
         document.body.appendChild(this.renderer.domElement);
     }
 
+    /**
+     * @description 自启动
+     */
     public start(): void {
         this.plays[this.index].setout();
         this.animate();
@@ -50,15 +61,14 @@ const AcgControl = class AcgControl {
     public animate(): void {
         requestAnimationFrame(this.animate.bind(this));
         this.plays[this.index].animate();
-        this.renderer.render(this.Scene, this.Camera);
+        this.renderer.render(this.scene, this.camera);
     }
 
     /**
      * @methods 加载播放列表
      */
     public setPlays(): void {
-        const mv = new mv1();
-        this.plays.push(mv);
+        this.plays.push(mv1);
     }
 };
 

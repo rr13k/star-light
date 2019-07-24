@@ -1,7 +1,8 @@
-import { Scene } from 'three';
-class BaseMv {
+import {scene} from '@/control/SceneControl';
 
-    // private scene = new Scene();
+class BaseMv {
+    // tslint:disable-next-line: typedef
+    public static sceneControl  = scene;
     private name: string;
     constructor(name: string) {
         this.name = name;

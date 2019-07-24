@@ -1,20 +1,24 @@
 
 import { BoxGeometry, Mesh, MeshBasicMaterial } from 'three';
 import {BaseMv} from '../BaseMv';
-const mv1 = class Mv1 extends BaseMv {
+class Mv1 extends BaseMv {
+    private scene: any;
+    private Objs: any[];
     constructor()  {
         super('mv1');
+        this.scene = BaseMv.sceneControl;
+        this.Objs = [];
     }
 
     public setout(): void {
         // tslint:disable-next-line: no-console
         console.log('setout 动画开始啦');
-        this.loop();
         const geometry = new BoxGeometry( 1, 1, 1 );
-        const material = new MeshBasicMaterial( { color: 0x00ff00 } );
+        const material = new MeshBasicMaterial( { color: 0x22ff00 } );
         const cube = new Mesh( geometry, material );
-         // tslint:disable-next-line: no-console
-        console.dir(BaseMv);
+        this.scene.add(cube);
+        this.Objs.push(cube);
+        this.loop();
     }
 
     public loop(): void {
@@ -24,8 +28,12 @@ const mv1 = class Mv1 extends BaseMv {
     }
 
     public animate(): void {
+        this.Objs[0].rotation.x += 0.01;
+        this.Objs[0].rotation.y += 0.01;
         // console.log("------")
     }
-};
+}
+
+const mv1 = new Mv1();
 
 export {mv1};
