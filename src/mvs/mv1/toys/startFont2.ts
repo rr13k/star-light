@@ -13,7 +13,6 @@ class StartFont extends Widget {
 
   public enterEvent(): void {
     this.obj.position.y += 0.02;
-    this.loopTime = 6000; // 修改事件持续时间
   }
 
   public actionEvent(): void {

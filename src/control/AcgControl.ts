@@ -40,7 +40,7 @@ const AcgControl = class AcgControl {
     }
 
     /**
-     * @description 初始化渲染器
+     * @method 初始化渲染器
      */
     public rendererInit(): void {
         this.renderer.setSize(window.innerWidth, window.innerHeight);
@@ -60,7 +60,7 @@ const AcgControl = class AcgControl {
      */
     public animate(): void {
         requestAnimationFrame(this.animate.bind(this));
-        this.plays[this.index].animate();
+        // this.plays[this.index].animate();
         this.renderer.render(this.scene, this.camera);
     }
 

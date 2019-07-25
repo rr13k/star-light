@@ -3,32 +3,31 @@
  * @class Widget 小物件
  */
 import {scene} from '@/control/SceneControl';
+import {TweenMax, TweenLite} from 'gsap';
 
 class Widget {
   public obj: any;
-  public loopTime: number;
+  protected tweenMax: any = TweenMax;
+  protected tweenLite: any = TweenLite;
+  // public loopTime: number;
   private name: string;
-  private state: number;
+  private state: number = 0;
   private enterType: number = 0;
   private actionType: number = 1;
   private leaveType: number = 2;
-  private off: boolean;
   constructor(name: string, obj: any) {
     this.name = name;
     this.obj = obj;
-    this.state = 0;
-    this.off = true;
-    this.loopTime = 1000; // 默认事件时长
-    setTimeout(() => {
-      this.eventBark();
-    }, this.loopTime);
+    // this.loopTime = 1000; // 默认事件时长
   }
 
   /**
-   * @description 添加到场景中
+   * @description 添加到场景中,添加时自动开始动画
+   * @param  obj 物体 auto 自动播放
    */
-  public add(obj: any): void {
+  public add(obj: any, auto: boolean = true): void {
     scene.add(obj);
+    if ( auto ) this.enterEvent();
   }
 
   /**
@@ -53,51 +52,10 @@ class Widget {
   }
 
   /**
-   * @description 行为树
-   */
-  public action(): void {
-    switch (this.state) {
-      case this.enterType:
-        this._enterEvent();
-        break;
-      case this.actionType:
-        this._actionEvent();
-        break;
-      case this.leaveType:
-        this._leaveEvent();
-        break;
-      default:
-        break;
-    }
-  }
-
-  /**
    * @description 离开当前事件
    */
   public eventBark(): void {
     this.state++;
-  }
-
-  /**
-   * @description 原开始事件
-   */
-  private _enterEvent(): void {
-    this.enterEvent();
-  }
-
-  /**
-   * @description 活跃事件
-   */
-  private _actionEvent(): void {
-    this.actionEvent();
-  }
-
-  /**
-   * @description 离开事件
-   */
-  private _leaveEvent(): void {
-    this.leaveEvent();
-    scene.remove(this.obj);
   }
 
 }
