@@ -3,7 +3,6 @@
  * @class Widget 小物件
  */
 import {scene} from '@/control/SceneControl';
-// import {TweenMax, Power2, TimelineLite} from "gsap/TweenMax";
 
 class Widget {
   public obj: any;

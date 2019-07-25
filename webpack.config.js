@@ -6,7 +6,7 @@ const resolve = dir => path.resolve(__dirname, dir);
 const webpack = require('webpack');
 
 module.exports = {
-  entry: resolve("src/main.ts"),
+  entry: './src/main.ts',
   output: {
     filename: 'app.js',
     path: path.resolve(__dirname, 'dist'),
@@ -17,12 +17,15 @@ module.exports = {
     contentBase: [path.resolve(__dirname, '../src/html'),
     path.resolve(__dirname, 'dist') ], //服务路径
     port: 8080,
+    clientLogLevel: "none", //关闭log
+    quiet: true, //关闭命令行log
     open: true, //自动打开页面
     hot: true,
     host: 'localhost',
     publicPath:'/',
     compress: true, // 服务器压缩式，一般为`true`，
     inline: true, // 默认为true,在打包时会注入一段代码到最后的js中，用来监视页面的改动而自动刷新页面
+    // publicPath: './static',
   },
   resolve: {
     // Add '.ts' and '.tsx' as resolvable extensions.
@@ -77,10 +80,11 @@ module.exports = {
       favicon: 'favicon.ico'
     }),
     new CopyWebpackPlugin([{
-      from: path.resolve(__dirname, './static'),
+      from: path.resolve(__dirname, '../static'),
       to: 'static',
       ignore: ['.*']
     }]),
     new webpack.NamedModulesPlugin()
+    
   ],
 };
