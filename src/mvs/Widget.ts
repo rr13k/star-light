@@ -3,6 +3,7 @@
  * @class Widget 小物件
  */
 import {scene} from '@/control/SceneControl';
+// import {TweenMax, Power2, TimelineLite} from "gsap/TweenMax";
 
 class Widget {
   public obj: any;
@@ -12,10 +13,12 @@ class Widget {
   private enterType: number = 0;
   private actionType: number = 1;
   private leaveType: number = 2;
+  private off: boolean;
   constructor(name: string, obj: any) {
     this.name = name;
     this.obj = obj;
     this.state = 0;
+    this.off = true;
     this.loopTime = 1000; // 默认事件时长
     setTimeout(() => {
       this.eventBark();
@@ -33,21 +36,21 @@ class Widget {
    * @description 重写开始事件
    */
   public enterEvent(): void {
-    // event
+    // e
   }
 
   /**
    * @description 重写活跃事件
    */
   public actionEvent(): void {
-    // event
+    // e
   }
 
   /**
    * @description 重写离开事件
    */
   public leaveEvent(): void {
-    // event
+    // e
   }
 
   /**
@@ -81,7 +84,6 @@ class Widget {
    */
   private _enterEvent(): void {
     this.enterEvent();
-    
   }
 
   /**

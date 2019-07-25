@@ -29,7 +29,8 @@ module.exports = {
     extensions: [".ts", ".tsx", ".js", ".json"],
     alias: {
       '@mvs': resolve('src/mvs'),
-      '@': resolve('src')
+      '@': resolve('src'),
+      '@libs': resolve('libs')
     }
   },
   module: {
