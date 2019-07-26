@@ -7,11 +7,11 @@ import {TweenLite, TweenMax} from 'gsap';
 
 class Widget {
   public obj: any;
+  public state: number;
   protected tweenMax: any = TweenMax;
   protected tweenLite: any = TweenLite;
   // public loopTime: number;
   private name: string;
-  private state: number;
   private enterType: number = 0;
   private actionType: number = 1;
   private leaveType: number = 2;
@@ -19,7 +19,6 @@ class Widget {
     this.name = name;
     this.obj = obj;
     this.state = -1;
-    // this.loopTime = 1000; // 默认事件时长
   }
 
   /**
@@ -28,49 +27,24 @@ class Widget {
    */
   public add(obj: any, auto: boolean = true): void {
     scene.add(obj);
-    if ( auto ) this.eventBark();
-  }
-
-  /**
-   * @description 重写开始事件
-   */
-  public enterEvent(): void {
-    // e
-  }
-
-  /**
-   * @description 重写活跃事件
-   */
-  public actionEvent(): void {
-    // e
-  }
-
-  /**
-   * @description 重写离开事件
-   */
-  public leaveEvent(): void {
-    // e
   }
 
   /**
    * @description 离开当前事件
    */
-  public eventBark(): void {
-    this.state++;
-    switch (this.state) {
-      case this.enterType:
-        this._enterEvent();
-        break;
-      case this.actionType:
-        break;
-      case this.leaveType:
-        break;
+  public eventBark(mthis: any): void {
+    mthis.state++;
+    switch (mthis.state) {
+      case mthis.enterType:
+          mthis.enterEvent();
+          break;
+      case mthis.actionType:
+          mthis.actionEvent();
+          break;
+      case mthis.leaveType:
+          mthis.leaveEvent();
+          break;
     }
-  }
-
-  private _enterEvent(): void {
-    this.enterEvent();
-    // e
   }
 
 }

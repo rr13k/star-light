@@ -29,7 +29,7 @@ class Mv1 extends BaseMv {
 
     private init(): void {
         this.widgets.push(startFont);
-        // this.widgets.push(startFont2);
+        this.widgets.push(startFont2);
     }
 }
 

@@ -1,31 +1,49 @@
-import {Widget} from '@mvs/Widget';
-import { Bounce} from 'gsap';
+import { Widget } from '@mvs/Widget';
+import { Bounce } from 'gsap';
 import * as THREE from 'three';
 
+/**
+ * @class 开始字体
+ * @extends {Widget}
+ */
 class StartFont extends Widget {
   constructor() {
-    const geometry = new THREE.BoxGeometry( 1, 1, 1 );
-    const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-    const cube = new THREE.Mesh( geometry, material );
+    const geometry = new THREE.BoxGeometry(1, 1, 1);
+    const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+    const cube = new THREE.Mesh(geometry, material);
     super('startFont', cube);
     this.obj = cube;
     this.add(cube);
+    this.eventBark(this);
   }
 
-  public enterEvent(): void {
-    // this.tweenMax(this.obj, 1.5, {opacity: 0, delay: 0});
-    // this.tweenMax.to(this.obj.position, 3, {x: 1, ease: Bounce.easeOut});
-    // this.tweenMax.to(this.obj.position, 30, {y: 2});
-    this.tweenMax.to([this.obj.rotation] , 3, {y: 20, lazy: true, repeat: -1, yoyo: true});
-    // this.tweenLite.to(this.obj.rotation , 3, {y: 20, repeat: -1, yoyo: true});
+  private enterEvent(): void {
+    this.tweenMax.to([this.obj.position], 3, {
+      onComplete: () => {
+        this.eventBark(this);
+      },
+      y: 3,
+      yoyo: true,
+    });
   }
 
-  public actionEvent(): void {
-    // this.obj.rotation.x += 0.01;
-    // this.tweenMax.to(this.obj.position, 3, {y: 1});
+  private actionEvent(): void {
+    this.tweenMax.to([this.obj.rotation], 3, {
+      ease: 'Power0.easeNone',
+      y: 20,
+    });
+    setTimeout(() => {
+      this.eventBark(this);
+    }, 2000);
   }
 
+  private leaveEvent(): void {
+    this.tweenMax.to([this.obj.position], 3, {
+      y: 0,
+      yoyo: true,
+    });
+  }
 }
 
 const startFont = new StartFont();
-export {startFont};
+export { startFont };
