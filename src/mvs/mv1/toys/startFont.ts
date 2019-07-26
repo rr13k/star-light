@@ -18,7 +18,6 @@ class StartFont extends Widget {
     // this.tweenMax.to(this.obj.position, 30, {y: 2});
     this.tweenMax.to([this.obj.rotation] , 3, {y: 20, lazy: true, repeat: -1, yoyo: true});
     // this.tweenLite.to(this.obj.rotation , 3, {y: 20, repeat: -1, yoyo: true});
-
   }
 
   public actionEvent(): void {

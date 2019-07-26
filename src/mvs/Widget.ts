@@ -3,7 +3,7 @@
  * @class Widget 小物件
  */
 import {scene} from '@/control/SceneControl';
-import {TweenMax, TweenLite} from 'gsap';
+import {TweenLite, TweenMax} from 'gsap';
 
 class Widget {
   public obj: any;
@@ -11,13 +11,14 @@ class Widget {
   protected tweenLite: any = TweenLite;
   // public loopTime: number;
   private name: string;
-  private state: number = 0;
+  private state: number;
   private enterType: number = 0;
   private actionType: number = 1;
   private leaveType: number = 2;
   constructor(name: string, obj: any) {
     this.name = name;
     this.obj = obj;
+    this.state = -1;
     // this.loopTime = 1000; // 默认事件时长
   }
 
@@ -27,7 +28,7 @@ class Widget {
    */
   public add(obj: any, auto: boolean = true): void {
     scene.add(obj);
-    if ( auto ) this.enterEvent();
+    if ( auto ) this.eventBark();
   }
 
   /**
@@ -56,6 +57,20 @@ class Widget {
    */
   public eventBark(): void {
     this.state++;
+    switch (this.state) {
+      case this.enterType:
+        this._enterEvent();
+        break;
+      case this.actionType:
+        break;
+      case this.leaveType:
+        break;
+    }
+  }
+
+  private _enterEvent(): void {
+    this.enterEvent();
+    // e
   }
 
 }
