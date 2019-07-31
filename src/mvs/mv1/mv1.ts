@@ -3,6 +3,7 @@ import { BoxGeometry, Mesh, MeshBasicMaterial } from 'three';
 import {BaseMv} from '../BaseMv';
 import {startFont} from './toys/startFont';
 import {startFont2} from './toys/startFont2';
+import {star} from './toys/star'
 
 class Mv1 extends BaseMv {
     private widgets: Widget[];
@@ -28,8 +29,8 @@ class Mv1 extends BaseMv {
     }
 
     private init(): void {
-        this.widgets.push(startFont);
-        this.widgets.push(startFont2);
+        this.widgets.push(star);
+        // this.widgets.push(startFont2);
     }
 }
 
