@@ -29,7 +29,7 @@
     "@webassemblyjs/helper-wasm-bytecode": "^1.8.5",
     "@webassemblyjs/wast-parser": "^1.8.5",
     "@webassemblyjs/wast-printer": "^1.8.5",
-    "acorn": "^6.2.1",
+    "acorn": "^6.4.1",
     "awesome-typescript-loader": "^5.2.1",
     "babel-cli": "^6.26.0",
     "babel-loader": "^8.0.6",
