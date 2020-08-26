@@ -44,7 +44,7 @@ const AcgControl = class AcgControl {
      */
     public rendererInit(): void {
         this.renderer.setSize(window.innerWidth, window.innerHeight);
-        window.AcgCanvas = this.renderer.domElement;
+        // window.AcgCanvas = this.renderer.domElement;
         document.body.appendChild(this.renderer.domElement);
     }
 
