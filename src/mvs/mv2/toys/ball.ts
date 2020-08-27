@@ -1,55 +1,48 @@
 import { Widget } from '@mvs/Widget';
-import { Bounce } from 'gsap';
 import * as THREE from 'three';
+import { TweenLite, TweenMax } from 'gsap';
 
 /**
  * @class 开始字体
  * @extends {Widget}
  */
-class Star extends Widget {
-  constructor() {
-    // const geometry = new THREE.CylinderBufferGeometry(5,5,20,32)
-    const geometry = new THREE.BoxGeometry(1, 1, 1);
-    const material = new THREE.MeshBasicMaterial({ color: 0xffff00 });
-    const cube = new THREE.Mesh(geometry, material);
-    super('cylinder', cube);
-    this.obj = cube;
-    
-  }
+function newStar2() :Widget{
+  const geometry = new THREE.BoxGeometry(1, 1, 1);
+  const material = new THREE.MeshBasicMaterial({ color: 0xffff00 });
+  const cube = new THREE.Mesh(geometry, material);
+  cube.position.set(0,0,0)
+  let star = new Widget("star",cube)
 
-  public play():void{
-    this.add(this.obj);
-    console.log(this.obj,"新动画添加")
-    this.eventBack(this);
-  }
-
-  private enterEvent(): void {
-    this.tweenMax.to([this.obj.position], 3, {
+  star.enterEvent = function(){
+    console.log("场景2动画")
+      TweenMax.to([this.obj.position], 3, {
       onComplete: () => {
-        this.eventBack(this);
+        this.eventBack();
       },
       y: 3,
       yoyo: true,
     });
   }
 
-  private actionEvent(): void {
-    this.tweenMax.to([this.obj.rotation], 3, {
-      ease: 'Power0.easeNone',
+  star.actionEvent = function(){
+    TweenMax.to([this.obj.rotation], 3, {
+      Ease: 'Power0.easeNone',
       y: 20,
     });
     setTimeout(() => {
-      this.eventBack(this);
-    }, 500);
+      this.eventBack();
+    }, 4000);
   }
 
-  private leaveEvent(): void {
-    this.tweenMax.to([this.obj.position], 3, {
+  star.leaveEvent = function(){
+    TweenMax.to([this.obj.position], 3, {
       y: 0,
       yoyo: true,
     });
   }
+  
+  return star
 }
 
-const star = new Star();
-export { star };
+const star2 = newStar2();
+export { star2 };

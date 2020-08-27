@@ -25,23 +25,26 @@ class MvControl {
      * @methods 切换下一个场景
      */
     public next(): void {
-        console.log("执行切换下一个场景:",this.index,this.plays)
-        this.plays[this.index].bearkMv()
-        this.index++
-        this.plays[this.index].setout()
+        console.log(this,this.index)
+        try {
+            if(++this.index < this.plays.length){
+                this.plays[this.index-1].bearkMv()
+                this.plays[this.index].setout()
+            }else{
+                console.log("播放完毕或超出场景范围!")
+            }
+        } catch (error) {
+            console.log("场景切换错误:",error)
+        }
     }
 
     /**
      * @methods 添加场景
      */
-    public addMv(mv:BaseMv): void {
-        if(arguments.length == 1){
+    public addMv(...mvs:BaseMv[]): void {
+        mvs.map(mv=>{
             this.plays.push(mv)
-        }else{
-            for(var i = 0;i < arguments.length; i++) {
-                this.plays.push(arguments[i])
-            }
-        }
+        })
     }
 };
 

@@ -1,12 +1,9 @@
 import {Widget} from '@mvs/Widget';
 import { BoxGeometry, Mesh, MeshBasicMaterial } from 'three';
 import {BaseMv} from '../BaseMv';
-import {startFont} from './toys/startFont';
-import {startFont2} from './toys/startFont2';
 import {star} from './toys/star'
 
 class Mv1 extends BaseMv {
-    private widgets: Widget[];
     constructor() {
         super('mv1');
         this.widgets = [];
@@ -15,7 +12,9 @@ class Mv1 extends BaseMv {
 
     public setout(): void {
         // tslint:disable-next-line: no-console
-        console.log('setout 动画开始啦');
+        console.log('setout 动画开始啦',star);
+        this.bindWidget(star)
+        this.runs()
         this.loop();
     }
 
@@ -29,10 +28,7 @@ class Mv1 extends BaseMv {
     }
 
     private init(): void {
-        this.widgets.push(star);
-        this.widgets.push(startFont2);
-        this.widgets.push(startFont);
-        console.log(this.widgets)
+        console.log(this.widgets,"mv1")
     }
 }
 

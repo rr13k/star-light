@@ -71,9 +71,7 @@ const AcgControl = class AcgControl {
      */
     public setPlays(): void {
         console.log(mvControl)
-        mvControl.addMv(mv1)
-        mvControl.addMv(mv2)
-        
+        mvControl.addMv(mv1,mv2)
         mvControl.play()
     }
 };
