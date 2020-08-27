@@ -1,9 +1,10 @@
 import { scene } from '@/control/SceneControl';
 import { BaseMv } from '@mvs/BaseMv';
 import { mv1 } from '@mvs/mv1/mv1';
-// import * as THREE from 'three';
-// tslint:disable-next-line: no-duplicate-imports
+import { mv2 } from '@mvs/mv2/mv2';
+
 import { PerspectiveCamera, Scene, WebGLRenderer } from 'three';
+import { mvControl } from '@/control/MvControl';
 
 const AcgControl = class AcgControl {
     private name: string;
@@ -52,7 +53,7 @@ const AcgControl = class AcgControl {
      * @description 自启动
      */
     public start(): void {
-        this.plays[this.index].setout();
+        // this.plays[this.index].setout();
         this.animate();
     }
 
@@ -66,10 +67,14 @@ const AcgControl = class AcgControl {
     }
 
     /**
-     * @methods 加载播放列表
+     * @methods 加载场景列表
      */
     public setPlays(): void {
-        this.plays.push(mv1);
+        console.log(mvControl)
+        mvControl.addMv(mv1)
+        mvControl.addMv(mv2)
+        
+        mvControl.play()
     }
 };
 

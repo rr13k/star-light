@@ -1,4 +1,5 @@
 import {scene} from '@/control/SceneControl';
+import {mvControl} from '@/control/MvControl';
 
 class BaseMv {
     // tslint:disable-next-line: typedef
@@ -21,10 +22,12 @@ class BaseMv {
 
     public bearkMv(): void {
         // 跳出动画
+        // this.bearked()
     }
 
     public bearked(): void {
-        // 跳出事件
+        // 跳出事件,跳出前执行事件
+        // mvControl.next() // 通知执行下一个动画
     }
 
     public animate(): void {

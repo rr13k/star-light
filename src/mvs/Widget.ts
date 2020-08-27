@@ -30,9 +30,17 @@ class Widget {
   }
 
   /**
-   * @description 离开当前事件
+   * @description 播放物体动画
    */
-  public eventBark(mthis: any): void {
+  public play(){
+    console.log("看这里",this)
+
+  }
+
+  /**
+   * @description 离开当前事件,进入下一个事件
+   */
+  public eventBack(mthis: any): void {
     mthis.state++;
     switch (mthis.state) {
       case mthis.enterType:

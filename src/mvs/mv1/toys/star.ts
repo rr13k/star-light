@@ -1,6 +1,8 @@
 import { Widget } from '@mvs/Widget';
 import { Bounce } from 'gsap';
 import * as THREE from 'three';
+import { mv1 } from '@mvs/mv1/mv1';
+import {mvControl} from '@/control/MvControl';
 
 /**
  * @class 开始字体
@@ -14,13 +16,13 @@ class Star extends Widget {
     super('star', cube);
     this.obj = cube;
     this.add(cube);
-    this.eventBark(this);
+    this.eventBack(this);
   }
 
   private enterEvent(): void {
     this.tweenMax.to([this.obj.position], 3, {
       onComplete: () => {
-        this.eventBark(this);
+        this.eventBack(this);
       },
       y: 3,
       yoyo: true,
@@ -33,7 +35,7 @@ class Star extends Widget {
       y: 20,
     });
     setTimeout(() => {
-      this.eventBark(this);
+      this.eventBack(this);
     }, 2000);
   }
 
@@ -42,6 +44,10 @@ class Star extends Widget {
       y: 0,
       yoyo: true,
     });
+
+    console.log("手工切换下一个场景")
+    mvControl.next()
+    // mv1.bearkMv() // 跳出场景
   }
 }
 

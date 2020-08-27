@@ -6,7 +6,7 @@ import * as THREE from 'three';
  * @class 开始字体
  * @extends {Widget}
  */
-class StartFont extends Widget {
+class StartFont2 extends Widget {
   constructor() {
     const geometry = new THREE.BoxGeometry(1, 1, 1);
     const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
@@ -14,13 +14,13 @@ class StartFont extends Widget {
     super('startFont', cube);
     this.obj = cube;
     this.add(cube);
-    this.eventBark(this);
+    this.eventBack(this);
   }
 
   private enterEvent(): void {
     this.tweenMax.to([this.obj.position], 3, {
       onComplete: () => {
-        this.eventBark(this);
+        this.eventBack(this);
       },
       x: 3,
       yoyo: true,
@@ -34,8 +34,8 @@ class StartFont extends Widget {
       y: 20,
     });
     setTimeout(() => {
-      this.eventBark(this);
-    }, 6000);
+      this.eventBack(this);
+    }, 1000);
   }
 
   private leaveEvent(): void {
@@ -46,5 +46,5 @@ class StartFont extends Widget {
   }
 }
 
-const startFont2 = new StartFont();
+const startFont2 = new StartFont2();
 export { startFont2 };

@@ -6,21 +6,21 @@ import * as THREE from 'three';
  * @class 开始字体
  * @extends {Widget}
  */
-class StartFont extends Widget {
+class Star extends Widget {
   constructor() {
+    // const geometry = new THREE.CylinderBufferGeometry(5,5,20,32)
     const geometry = new THREE.BoxGeometry(1, 1, 1);
-    const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+    const material = new THREE.MeshBasicMaterial({ color: 0xffff00 });
     const cube = new THREE.Mesh(geometry, material);
-    super('startFont', cube);
+    super('cylinder', cube);
     this.obj = cube;
-    this.add(cube);
-    this.eventBack(this);
-    this.createStar();
+    
   }
 
-  createStar(){
-    // const star = document.createElement('dev');
-    // star.style.backgroundColor = 'red';
+  public play():void{
+    this.add(this.obj);
+    console.log(this.obj,"新动画添加")
+    this.eventBack(this);
   }
 
   private enterEvent(): void {
@@ -40,7 +40,7 @@ class StartFont extends Widget {
     });
     setTimeout(() => {
       this.eventBack(this);
-    }, 3000);
+    }, 500);
   }
 
   private leaveEvent(): void {
@@ -51,5 +51,5 @@ class StartFont extends Widget {
   }
 }
 
-const startFont = new StartFont();
-export { startFont };
+const star = new Star();
+export { star };
