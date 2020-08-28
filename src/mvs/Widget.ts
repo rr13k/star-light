@@ -13,7 +13,7 @@ const WidgetState = {
 }
 
 class Widget {
-  public obj: any;
+  public obj: THREE.Mesh;
   public state: number;
   public mvs: BaseMv[];
   // public loopTime: number;
@@ -63,6 +63,11 @@ class Widget {
   * @description 物件离开事件
   */
   public leaveEvent() { }
+
+  /**
+  * @description 物件离开事件
+  */
+  public onClick() { }
 
   /**
    * @description 离开当前事件,进入下一个事件

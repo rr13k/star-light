@@ -2,6 +2,7 @@ import {scene} from '@/control/SceneControl';
 import {mvControl} from '@/control/MvControl';
 import {Widget} from '@mvs/Widget';
 import { star } from './mv1/toys/star';
+import { CLICKOBJS } from '@/control/AcgControl';
 
 class BaseMv {
     // tslint:disable-next-line: typedef
@@ -45,6 +46,9 @@ class BaseMv {
     public bindWidget(...widgets:Widget[]):void {
         widgets.map(widget=>{
             this.widgets.push(widget); // 添加物体
+            if(String(widget.onClick).length != 15){ // 15表示空函数
+                CLICKOBJS.push(widget)
+            }
             widget.setMv(this)
         })
     }

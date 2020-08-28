@@ -2,6 +2,7 @@ import {Widget} from '@mvs/Widget';
 import { BoxGeometry, Mesh, MeshBasicMaterial } from 'three';
 import {BaseMv} from '../BaseMv';
 import {star} from './toys/star'
+import {clicker} from './toys/clicker'
 
 class Mv1 extends BaseMv {
     constructor() {
@@ -13,7 +14,7 @@ class Mv1 extends BaseMv {
     public setout(): void {
         // tslint:disable-next-line: no-console
         console.log('setout 动画开始啦',star);
-        this.bindWidget(star)
+        this.bindWidget(star,clicker)
         this.runs()
         this.loop();
     }

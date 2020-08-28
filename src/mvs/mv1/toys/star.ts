@@ -7,7 +7,7 @@ import { TweenLite, TweenMax } from 'gsap';
  * @extends {Widget}
  */
 function newStar() :Widget{
-  const geometry = new THREE.BoxGeometry(1, 1, 1);
+  const geometry = new THREE.CircleGeometry(1, 10);
   const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
   const cube = new THREE.Mesh(geometry, material);
   let star = new Widget("star",cube)
